@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Free Online Clock Tool</title>
+    <meta name="description" content="Free online digital clock with multiple time zones, stopwatch, timer, and alarm features. Perfect for productivity, meetings, and time management.">
+    <meta name="keywords" content="digital clock, online clock, world clock, stopwatch, timer, alarm, time zones, productivity tool">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google AdSense Auto Ads - Replace YOUR_ADSENSE_PUBLISHER_ID with your actual publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo">ClockHub</h1>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home">
+        <!-- Top Ad Space -->
+        <div class="ad-container top-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                 data-ad-slot="TOP_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="container">
+            <div class="hero-section">
+                <h1>Digital Clock</h1>
+                <p class="subtitle">Your ultimate online time companion with world clocks, stopwatch, timer, and alarm features</p>
+            </div>
+
+            <!-- Main Clock Display -->
+            <div class="clock-section">
+                <div class="main-clock">
+                    <div class="clock-display">
+                        <div id="currentTime" class="time-display">00:00:00</div>
+                        <div id="currentDate" class="date-display">Loading...</div>
+                        <div id="currentTimezone" class="timezone-display">UTC</div>
+                    </div>
+                    
+                    <div class="clock-controls">
+                        <button id="formatToggle" class="control-btn">12/24 Hour</button>
+                        <button id="fullscreenBtn" class="control-btn">Fullscreen</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Tabs -->
+            <div class="features-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="worldclock">World Clock</button>
+                    <button class="tab-btn" data-tab="stopwatch">Stopwatch</button>
+                    <button class="tab-btn" data-tab="timer">Timer</button>
+                    <button class="tab-btn" data-tab="alarm">Alarm</button>
+                </div>
+
+                <!-- World Clock Tab -->
+                <div id="worldclock" class="tab-content active">
+                    <div class="world-clocks">
+                        <div class="world-clock-item">
+                            <div class="city-name">New York</div>
+                            <div class="city-time" data-timezone="America/New_York">--:--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city-name">London</div>
+                            <div class="city-time" data-timezone="Europe/London">--:--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city-name">Tokyo</div>
+                            <div class="city-time" data-timezone="Asia/Tokyo">--:--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city-name">Sydney</div>
+                            <div class="city-time" data-timezone="Australia/Sydney">--:--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city-name">Dubai</div>
+                            <div class="city-time" data-timezone="Asia/Dubai">--:--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city-name">Los Angeles</div>
+                            <div class="city-time" data-timezone="America/Los_Angeles">--:--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stopwatch Tab -->
+                <div id="stopwatch" class="tab-content">
+                    <div class="stopwatch-container">
+                        <div id="stopwatchDisplay" class="feature-display">00:00:00</div>
+                        <div class="feature-controls">
+                            <button id="stopwatchStart" class="feature-btn start-btn">Start</button>
+                            <button id="stopwatchStop" class="feature-btn stop-btn">Stop</button>
+                            <button id="stopwatchReset" class="feature-btn reset-btn">Reset</button>
+                            <button id="stopwatchLap" class="feature-btn lap-btn">Lap</button>
+                        </div>
+                        <div id="lapTimes" class="lap-times"></div>
+                    </div>
+                </div>
+
+                <!-- Timer Tab -->
+                <div id="timer" class="tab-content">
+                    <div class="timer-container">
+                        <div class="timer-inputs">
+                            <input type="number" id="timerHours" min="0" max="23" value="0" placeholder="Hours">
+                            <input type="number" id="timerMinutes" min="0" max="59" value="5" placeholder="Minutes">
+                            <input type="number" id="timerSeconds" min="0" max="59" value="0" placeholder="Seconds">
+                        </div>
+                        <div id="timerDisplay" class="feature-display">05:00</div>
+                        <div class="feature-controls">
+                            <button id="timerStart" class="feature-btn start-btn">Start</button>
+                            <button id="timerPause" class="feature-btn stop-btn">Pause</button>
+                            <button id="timerReset" class="feature-btn reset-btn">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alarm Tab -->
+                <div id="alarm" class="tab-content">
+                    <div class="alarm-container">
+                        <div class="alarm-inputs">
+                            <input type="time" id="alarmTime" value="07:00">
+                            <input type="text" id="alarmLabel" placeholder="Alarm label (optional)">
+                        </div>
+                        <div class="feature-controls">
+                            <button id="alarmSet" class="feature-btn start-btn">Set Alarm</button>
+                            <button id="alarmClear" class="feature-btn reset-btn">Clear</button>
+                        </div>
+                        <div id="alarmStatus" class="alarm-status"></div>
+                        <div id="alarmList" class="alarm-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Ad Space -->
+            <div class="ad-container middle-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                     data-ad-slot="MIDDLE_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Features Section -->
+            <div class="info-section">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>🕐 Real-Time Clock</h3>
+                        <p>Accurate digital clock with customizable 12/24 hour format and timezone display</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🌍 World Clock</h3>
+                        <p>View current time in major cities around the world simultaneously</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⏱️ Stopwatch</h3>
+                        <p>Precise stopwatch with lap time recording for timing activities</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⏲️ Timer</h3>
+                        <p>Countdown timer with customizable hours, minutes, and seconds</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⏰ Alarm</h3>
+                        <p>Set multiple alarms with custom labels and notifications</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📱 Responsive</h3>
+                        <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>About Digital Clock</h2>
+                <p>Our free online digital clock provides you with all the time-related tools you need in one convenient location. Whether you're managing your schedule, timing activities, or keeping track of different time zones, our comprehensive clock tool has you covered.</p>
+                <p>Perfect for students, professionals, travelers, and anyone who needs reliable time management tools. All features work offline once loaded, ensuring you always have access to accurate time information.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Ad Space -->
+        <div class="ad-container bottom-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                 data-ad-slot="BOTTOM_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Digital Clock. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio for alarm -->
+    <audio id="alarmSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
